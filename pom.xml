@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.getquill</groupId>
+  <artifactId>quill-examples</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Quill Examples</name>
+
+  <dependencies>
+
+    <!-- Quill -->
+    <dependency>
+      <groupId>io.getquill</groupId>
+      <artifactId>quill-core_2.11</artifactId>
+      <version>${quill.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.getquill</groupId>
+      <artifactId>quill-sql_2.11</artifactId>
+      <version>${quill.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.getquill</groupId>
+      <artifactId>quill-jdbc_2.11</artifactId>
+      <version>${quill.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.196</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.vertical-blank</groupId>
+      <artifactId>sql-formatter</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.6</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.10.2</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <javadocVersion>1.8</javadocVersion>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.2</version>
+      </plugin>
+
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>scala-compile</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>add-source</goal>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>scala-test-compile</id>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+
+  <properties>
+      <scala.version>2.11.11</scala.version>
+      <java.version>1.8</java.version>
+      <quill.version>3.3.0</quill.version>
+    <play2.version>2.7.3</play2.version>
+
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+</project>
